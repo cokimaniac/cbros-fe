@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+// pages
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Logout from "./pages/Logout";
+
 function App() {
+  let auth = window.localStorage.getItem("tokenAuth");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <div id="menu">
+          {auth}
+          <ul className="nav-menu">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/signup">Sign Up</Link></li>
+            <li><Link to="/logout">Logout</Link></li>
+          </ul>
+        </div>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/login" component={Login}></Route>
+          <Route path="/signup" component={Signup}></Route>
+          <Route path="/logout" component={Logout}></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
