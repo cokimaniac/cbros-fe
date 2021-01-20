@@ -20,10 +20,11 @@ class Profile extends Component {
             console.error(err);
         }
     }
+
     render() {
         return (
             <div className="row justify-content-md-center">
-                <div className="col-lg-2">
+                <div className="col-lg-3">
                     <Debtors />
                 </div>
                 <div className="col-lg-6">
