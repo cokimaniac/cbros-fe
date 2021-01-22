@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Logout from "./pages/Logout";
+// components
 
 function App() {
   let auth = window.localStorage.getItem("tokenAuth");

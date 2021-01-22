@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // services
 import User from "../services/User";
@@ -58,12 +58,6 @@ function Signup() {
 			}
 		}
 	}
-
-	useEffect(() => {
-		console.log(register);
-		console.log(confirmation);
-	}, [register, confirmation]);
-
 
 	return (
 		<div className="row justify-content-md-center">
