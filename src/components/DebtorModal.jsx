@@ -5,17 +5,24 @@ import Button from "react-bootstrap/Button";
 // fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+// services
+import Debtor from "../services/Debtor";
 
 function DebtorModal(props) {
 
-    const [debtor, setDebtor] = useState({ fullName: undefined, phoneNumber: undefined });
+    const [debtor, setDebtor] = useState({ fullName: undefined, phoneNumber: undefined, email: undefined });
     const [show, setShow] = useState(false);
 
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(debtor);
+        try {
+            let newDebtor = await Debtor.create(debtor);
+            console.log(newDebtor);
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     const handleChange = (e) => {
@@ -34,28 +41,37 @@ function DebtorModal(props) {
             </button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>New Debtor</Modal.Title>
                 </Modal.Header>
                 <form method="POST" id="newDebtorForm" onSubmit={handleSubmit}>
                     <Modal.Body>
-                            <div className="form-group">
-                                <input
-                                    onChange={handleChange}
-                                    type="text"
-                                    className="form-control"
-                                    id="fullName"
-                                    name="fullName"
-                                    placeholder="Debtor full name" />
-                            </div>
-                            <div className="form-group">
-                                <input
-                                    onChange={handleChange}
-                                    type="text"
-                                    className="form-control"
-                                    id="phoneNumber"
-                                    name="phoneNumber"
-                                    placeholder="Debtor phone number" />
-                            </div>
+                        <div className="form-group">
+                            <input
+                                onChange={handleChange}
+                                type="text"
+                                className="form-control"
+                                id="fullName"
+                                name="fullName"
+                                placeholder="Debtor full name" />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                onChange={handleChange}
+                                type="text"
+                                className="form-control"
+                                id="phoneNumber"
+                                name="phoneNumber"
+                                placeholder="Debtor phone number" />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                onChange={handleChange}
+                                type="email"
+                                id="email"
+                                name="email"
+                                className="form-control"
+                                placeholder="Debtor email" />
+                        </div>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>Close</Button>
