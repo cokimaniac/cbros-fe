@@ -30,7 +30,8 @@ class Auth {
             method: "POST",
             mode: "cors",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "auth-token": this.authToken
             },
             body: JSON.stringify(data)
         }
