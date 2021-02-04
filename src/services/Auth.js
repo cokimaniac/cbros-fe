@@ -25,7 +25,7 @@ class Auth {
         }
     }
 
-    static postHeader(data) {
+    static postHeader(data = null) {
         return {
             method: "POST",
             mode: "cors",
@@ -34,6 +34,18 @@ class Auth {
                 "auth-token": this.authToken
             },
             body: JSON.stringify(data)
+        }
+    }
+
+    static patchHeader(data = null) {
+        return {
+            method: "PATCH",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": this.authToken
+            },
+            body: JSON.stringify(data),
         }
     }
 }
