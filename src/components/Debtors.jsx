@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 //
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
@@ -38,7 +39,13 @@ function Debtors(props) {
                                         </a>&nbsp; {item.fullName}
                                     </h5>
                                     <p className="card-text">
-                                        Debts: {item.ammounts.length > 3 ? (<span className="badge badge-danger">{item.ammounts.length}</span>) : (<span className="badge badge-primary">{item.ammounts.length}</span>) }
+                                        Debts: {item.ammounts.length > 3 ?
+                                            (<Link to={`/ammounts/${item._id}`}>
+                                                <span className="badge badge-danger">{item.ammounts.length}</span>
+                                            </Link>) :
+                                            (<Link to={`/ammounts/${item._id}`}>
+                                                <span className="badge badge-primary">{item.ammounts.length}</span>
+                                            </Link>)}
                                     </p>
                                 </div>
                                 <div className="col-lg-3">

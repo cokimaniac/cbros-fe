@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 // fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDollarSign } from '@fortawesome/free-solid-svg-icons'
+import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 // services
 import Ammount from "../services/Ammount";
 
@@ -37,7 +37,7 @@ function AmmountModal(props) {
             onClick={handleShow}
             title="Add ammount"
             className="btn btn-success btn-sm justify-content-md-end ml-4 rounded-circle">
-                <FontAwesomeIcon icon={faDollarSign} />
+                <FontAwesomeIcon icon={faGreaterThan} />
             </button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
