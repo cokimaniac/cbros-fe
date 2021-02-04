@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Logout from "./pages/Logout";
+import Test from "./pages/Test";
+import Ammounts from "./pages/Ammounts";
 // components
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/signup">Sign Up</Link></li>
             <li><Link to="/logout">Logout</Link></li>
+            <li><Link to="/test">Test</Link></li>
           </ul>
         </div>
         <Switch>
@@ -28,6 +31,8 @@ function App() {
           <Route path="/login" component={Login}></Route>
           <Route path="/signup" component={Signup}></Route>
           <Route path="/logout" component={Logout}></Route>
+          <Route path="/test" component={Test}></Route>
+          <Route path="/ammounts/:debtorId" component={Ammounts}></Route>
         </Switch>
       </Router>
     </div>
